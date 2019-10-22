@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainListComment"></activity>
+        <activity android:name=".ShowCart" />
+        <activity android:name=".MainListComment" />
         <activity android:name=".AdminManagement" />
         <activity android:name=".Activity_Add_Comment" />
         <activity android:name=".Aboutus" />

@@ -22,7 +22,7 @@ public class MainListComment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_list);
+        setContentView(R.layout.activity_main_list_comment);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 

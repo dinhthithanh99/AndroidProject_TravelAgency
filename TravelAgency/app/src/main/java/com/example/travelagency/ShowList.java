@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -39,6 +40,13 @@ public class ShowList extends AppCompatActivity implements ListAdapter.OnItemCli
                 startActivity(intent);
             }
         });
+        findViewById(R.id.showTour).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShowList.this, ShowCart.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void onResume() {
@@ -64,19 +72,26 @@ public class ShowList extends AppCompatActivity implements ListAdapter.OnItemCli
         }.execute();
     }
 
-    private void openAddtoCartScreen(travelTour tours) {
-        Intent intent = new Intent(ShowList.this, UpdateActivity.class);
-        intent.putExtra("id", tours.getId());
-        intent.putExtra("title", tours.getTitle());
-        intent.putExtra("place", tours.getPlace());
-        intent.putExtra("time", tours.getTime());
-        intent.putExtra("vehicle", tours.getVehicle());
-        startActivity(intent);
+    private void bookTour(final travelTour tours) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                Booktour bookTours = new Booktour();
+                bookTours.setProdId(tours.getId());
+                bookTours.setTitle(tours.getTitle());
+                bookTours.setPlace(tours.getPlace());
+                bookTours.setTime(tours.getTime());
+                bookTours.setVehicle(tours.getVehicle());
+                db.BookTourDao().insertAll(bookTours);
+                return null;
+            }
+        }.execute();
     }
 
     @Override
     public void onClickItemAddCart(int position) {
-
+        bookTour(travelTours.get(position));
+        Toast.makeText(ShowList.this, "Book tour successfully!", Toast.LENGTH_SHORT).show();
     }
 
 }

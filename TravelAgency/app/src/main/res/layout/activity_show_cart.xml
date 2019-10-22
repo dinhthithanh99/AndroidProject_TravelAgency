@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ShowList">
+    tools:context=".ShowCart">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,13 +55,13 @@
             android:textColor="#8A5050"
             android:textSize="20dp" />
         <Button
-            android:id="@+id/showTour"
+            android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/color_buttonadd"
             android:gravity="center"
             android:textStyle="bold"
-            android:text="Show Tour"
+            android:text="Delete"
             android:textColor="#8A5050"
             android:textSize="20dp" />
     </LinearLayout>

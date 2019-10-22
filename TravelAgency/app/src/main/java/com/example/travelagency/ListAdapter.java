@@ -19,7 +19,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
 
     public interface OnItemClicked {
         void onClickItemAddCart(int position);
-}
+    }
 
     public void setOnClick(OnItemClicked onClick) {
         this.onClick = onClick;
@@ -65,6 +65,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
             super(itemView);
             tvList = itemView.findViewById(R.id.tvList);
             btnAddCart = itemView.findViewById(R.id.addCart);
+
+
         }
     }
 }
